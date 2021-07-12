@@ -11,7 +11,7 @@ class Game
     private bool keepPlaying = true;
     public int Score {get; private set; } = 0;
     ScreenPrinter  sp =  new ScreenPrinter();
-    string playerInput, ComputerChoice;
+    string playerInput;
     int randomnum;
 
     public void Start(){
@@ -24,20 +24,26 @@ class Game
       sp.print(@"
 Choose rock, paper or scissors");
 PlayGame();
-    
-
-    }
+       }
 
     public void PlayGame()
     {
+       
         while(keepPlaying)
         {
             playerInput = Console.ReadLine();
             playerInput = playerInput.ToLower();
-            switch(randomnum)
-            { case 1: 
-ComputerChoice = "rock";
-if (playerInput == "rock"){
+            if (playerInput == "q")
+        {
+            keepPlaying = false;
+            sp.print("bye");
+            continue;
+        }
+        switch(randomnum)
+            { case 0: 
+string ComputerChoice = "rock";
+if (ComputerChoice == playerInput)
+{
 Console.WriteLine("tie");
 }
 else if(playerInput == "paper")
@@ -49,9 +55,43 @@ else if(playerInput == "scissors")
 {
     Console.WriteLine("computer wins");
 }
+break;
+case 1:
+ ComputerChoice = "paper";
+ if (playerInput == "paper")
+ {
+     Console.WriteLine("tie");
  }
+ else if (playerInput == "rock")
+ {
+     Console.WriteLine("computer wins");
+ }
+ else if (playerInput == "scissors")
+ {
+     Console.WriteLine("you win");
+ }
+break;
+case 2:
+ComputerChoice = "scissor";
+if(playerInput == "scissor")
+{
+Console.WriteLine("tie");
+}
+else if(playerInput == "rock")
+{
+Console.WriteLine("you win");
+}
+else if(playerInput == "paper")
+{
+    Console.WriteLine("computer wins");
+}
+break;
+}
+ 
+        }
 
         }
+
 
     }
 
@@ -59,8 +99,6 @@ else if(playerInput == "scissors")
 //     {
 
 
-
 //     }
 }
 
-}
