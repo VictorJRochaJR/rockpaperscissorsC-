@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using rockpaperscissors.Utils;
 
 
@@ -11,9 +12,11 @@ class Game
     public int Score {get; private set; } = 0;
     ScreenPrinter  sp =  new ScreenPrinter();
     public void Start(){
-      var r = "rock";
-      var p = "paper";
-      var s = "scissor";
+
+     
+      var random = new Random();
+  var list = new List<string>{ "rock","paper","scissor"};
+         int index = random.Next(list.Count);
       sp.print(@"
 Choose rock, paper or scissors");
 
@@ -21,12 +24,12 @@ Choose rock, paper or scissors");
 
     }
 
-    public void ComputerChoice()
-    {
+//     public void ComputerChoice()
+//     {
 
 
 
-    }
+//     }
 }
 
 }
