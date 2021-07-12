@@ -9,7 +9,7 @@ namespace rockpaperscissors
 class Game
 {
     private bool keepPlaying = true;
-    public int Score {get; private set; } = 0;
+    public int Score {get; private set; } = 1;
     ScreenPrinter  sp =  new ScreenPrinter();
     string playerInput;
     int randomnum;
@@ -48,7 +48,7 @@ Console.WriteLine("tie");
 }
 else if(playerInput == "paper")
 {
-    Console.WriteLine("you win");
+    Console.WriteLine($"you win {Score}");
     Score++;
 }
 else if(playerInput == "scissors")
@@ -68,7 +68,8 @@ case 1:
  }
  else if (playerInput == "scissors")
  {
-     Console.WriteLine("you win");
+     Console.WriteLine($"you win {Score}");
+     Score++;
  }
 break;
 case 2:
@@ -79,7 +80,9 @@ Console.WriteLine("tie");
 }
 else if(playerInput == "rock")
 {
-Console.WriteLine("you win");
+Console.WriteLine($"you win {Score}");
+Score++;
+
 }
 else if(playerInput == "paper")
 {
